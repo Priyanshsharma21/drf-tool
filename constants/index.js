@@ -4,6 +4,7 @@ const data = {
     deliverable : "",
     content : {
         contentLead : "",
+        demo : "",
         version : "",
         pages : ""
     },

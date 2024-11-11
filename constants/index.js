@@ -17,3 +17,13 @@ const data = {
     projectManager : "",
     completedOn : ""
 }
+
+const drf = [
+    {
+        sectionTitle : "",
+        slideTitle : "",
+        transcript : "",
+        notes : "",
+        imgRef : ""
+    }
+]

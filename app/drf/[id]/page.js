@@ -3,22 +3,60 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import styles from "./Drf.module.css"
 import DesignCard from '@/components/DesignCard/DesignCard';
-import { Row, Col} from "antd"
-import { Spin } from 'antd';
+import { Row, Col, Spin, Modal, Input, Button} from "antd"
+import { DrfTable } from '@/components/inedx';
+
+
 const Drf = () => {
   const params = useParams();
   const id = params.id;
   const [drfData, setDrfData] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  
+  // Form fields states
+  const [sectionTitle, setSectionTitle] = useState("");
+  const [slideTitle, setSlideTitle] = useState("");
+  const [transcript, setTranscript] = useState("");
+  const [notes, setNotes] = useState("");
+  const [imgRef, setImgRef] = useState("");
+
+  const showModal = () => setIsModalOpen(true);
+  const handleCancel = () => {
+    setIsModalOpen(false);
+    resetFormFields(); 
+  };
+
+  const resetFormFields = () => {
+    setSectionTitle("");
+    setSlideTitle("");
+    setTranscript("");
+    setNotes("");
+    setImgRef("");
+  };
 
   useEffect(() => {
     const storedData = JSON.parse(localStorage.getItem("mydrfs"));
-
     const matchedData = storedData.find((data) => String(data.id) === id);
-
-    if (matchedData) {
-      setDrfData(matchedData);
-    }
+    if (matchedData) setDrfData(matchedData);
   }, [id]);
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault(); 
+    const newSlide = { sectionTitle, slideTitle, transcript, notes, imgRef };
+
+    const updatedData = { ...drfData, drfs: [...(drfData.drfs || []), newSlide] };
+    setDrfData(updatedData);
+
+    const storedData = JSON.parse(localStorage.getItem("mydrfs"));
+    const updatedStoredData = storedData.map((data) =>
+      data.id === drfData.id ? updatedData : data
+    );
+    localStorage.setItem("mydrfs", JSON.stringify(updatedStoredData));
+
+    handleCancel(); 
+  };
+
+  console.log(drfData)
 
   return (
     <section className={styles.drf}>
@@ -89,10 +127,80 @@ const Drf = () => {
 
 
     <div className={styles.arcContainer}>
-    <div className={styles.arc}>
-        <img src="/assets/logo.png" alt="Logo" className={styles.arcLogo} />
+        <div className={styles.arc}>
+            <img src="/assets/logo.png" alt="Logo" className={styles.arcLogo} />
+        </div>
     </div>
-    </div>
+
+
+    {drfData?.drfs.length !== 0 ? (
+        <div className="mt-10">
+            <DrfTable data={drfData?.drfs} />
+            <div className="flex justify-center">
+            <div onClick={showModal} className={styles.addSlideBtn}>
+                Add Slide
+            </div>
+        </div>
+        </div>
+    ):(
+        <div className="flex justify-center">
+            <div onClick={showModal} className={styles.addSlideBtn}>
+                Add Slide
+            </div>
+        </div>
+    )}
+
+
+    <Modal title="Add Slide" open={isModalOpen} onOk={handleFormSubmit} onCancel={handleCancel}>
+        <form onSubmit={handleFormSubmit}>
+          <label>
+            Section Title:
+            <Input
+              type="text"
+              value={sectionTitle}
+              onChange={(e) => setSectionTitle(e.target.value)}
+              required
+            />
+          </label>
+          <label>
+            Slide Title:
+            <Input
+              type="text"
+              value={slideTitle}
+              onChange={(e) => setSlideTitle(e.target.value)}
+              required
+            />
+          </label>
+          <label>
+            Transcript:
+            <textarea
+              value={transcript}
+              onChange={(e) => setTranscript(e.target.value)}
+              required
+              style={{ width: "100%", height: "80px" }}
+            />
+          </label>
+          <label>
+            Notes:
+            <textarea
+              value={notes}
+              onChange={(e) => setNotes(e.target.value)}
+              required
+              style={{ width: "100%", height: "80px" }}
+            />
+          </label>
+          <label>
+            Upload Image:
+            <Input
+              type="file"
+              onChange={(e) => setImgRef(e.target.files[0]?.name || "")}
+            />
+          </label>
+          <Button type="primary" htmlType="submit">
+            Submit
+          </Button>
+        </form>
+      </Modal>
 
 
     </section>

@@ -34,6 +34,21 @@ backdrop-filter: blur(10.1px);
     margin-top: 2rem; /* Adjust as needed */
   }
   
+  @keyframes glowAnimation {
+    0% {
+      background: linear-gradient(to bottom, #08ff6f00, #64f09e00);
+      box-shadow: 0px -10px 20px rgba(0, 255, 255, 0.4), 0px -20px 30px rgba(0, 255, 255, 0.6);
+    }
+    50% {
+        background: linear-gradient(to bottom, #08ff6f00, #64f09e00);
+      box-shadow: 0px -15px 30px rgba(0, 255, 255, 0.6), 0px -25px 40px rgba(0, 255, 255, 0.8);
+    }
+    100% {
+      background: linear-gradient(to bottom, #08ff6f00, #64f09e00);
+      box-shadow: 0px -10px 20px rgba(0, 255, 255, 0.4), 0px -20px 30px rgba(0, 255, 255, 0.6);
+    }
+  }
+  
   .arc {
     position: relative;
     width: 200px; /* Adjust width and height as needed */
@@ -42,11 +57,12 @@ backdrop-filter: blur(10.1px);
     border-top-right-radius: 100px;
     background: linear-gradient(to bottom, #08ff6f00, #64f09e00);
     box-shadow: 0px -10px 20px rgba(0, 255, 255, 0.4), 0px -20px 30px rgba(0, 255, 255, 0.6);
-
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: glowAnimation 5s ease-in-out infinite;
   }
+  
   
   .arcLogo {
     position: absolute;
@@ -58,6 +74,19 @@ backdrop-filter: blur(10.1px);
     margin-top: 1rem;
   }
   
+
+  .addSlideBtn{
+    border: 2px solid white;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    padding: 1rem;
+    margin-top: 2rem;
+    width: 100%;
+  }
 
 @media (max-width: 580.98px) {
     

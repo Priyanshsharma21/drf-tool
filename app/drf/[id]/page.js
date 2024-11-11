@@ -20,11 +20,8 @@ const Drf = () => {
     }
   }, [id]);
 
-  console.log(drfData)
-
   return (
     <section className={styles.drf}>
-     
 
     {drfData?.client ? (
        <>
@@ -90,6 +87,14 @@ const Drf = () => {
         </div>
     )}
 
+
+    <div className={styles.arcContainer}>
+    <div className={styles.arc}>
+        <img src="/assets/logo.png" alt="Logo" className={styles.arcLogo} />
+    </div>
+    </div>
+
+
     </section>
   );
 };
@@ -98,24 +103,3 @@ export default Drf;
 
 
 
-// {
-//     "client": "Walkwise",
-//     "project": "Website",
-//     "deliverable": "Scroll Based Website",
-//     "content": {
-//         "contentLead": "Anirudh",
-//         "version": "1.0",
-//         "pages": "6"
-//     },
-//     "design": {
-//         "designLead": "Vikram",
-//         "version": "2.0",
-//         "deliveredBy": "Priyansh Sharma"
-//     },
-//     "authorizedBy": "Anirudh ",
-//     "projectManager": "Vikram",
-//     "completedOn": "",
-//     "drfs": [],
-//     "id": 1731319853212,
-//     "createdAt": "2024-11-11T10:10:53.212Z"
-// }

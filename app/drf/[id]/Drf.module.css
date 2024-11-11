@@ -3,6 +3,11 @@
     padding-top: 2rem;
     background: #282828;
     border-radius: 4px;
+
+background: rgba(255, 255, 255, 0.055);
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(10.1px);
+-webkit-backdrop-filter: blur(10.1px);
 }
 
 .drfHeading{
@@ -21,6 +26,38 @@
     padding-top: 3rem;
     padding-bottom: 5rem;
 }
+
+.arcContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem; /* Adjust as needed */
+  }
+  
+  .arc {
+    position: relative;
+    width: 200px; /* Adjust width and height as needed */
+    height: 100px;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+    background: linear-gradient(to bottom, #08ff6f00, #64f09e00);
+    box-shadow: 0px -10px 20px rgba(0, 255, 255, 0.4), 0px -20px 30px rgba(0, 255, 255, 0.6);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .arcLogo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%); /* Adjust to center */
+    width: 50px; /* Logo size */
+    height: auto;
+    margin-top: 1rem;
+  }
+  
 
 @media (max-width: 580.98px) {
     

@@ -1,0 +1,35 @@
+.drf{
+    margin-top: 2rem;
+    padding-top: 2rem;
+    background: #282828;
+    border-radius: 4px;
+}
+
+.drfHeading{
+    font-size: 4vw;
+    font-weight: 700;
+}
+
+.drfMainRows{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.drfBox{
+    padding-top: 3rem;
+    padding-bottom: 5rem;
+}
+
+@media (max-width: 580.98px) {
+    
+.drfHeading{
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.drfBox{
+    padding-top: 1.5rem;
+}
+}

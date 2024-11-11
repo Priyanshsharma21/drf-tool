@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body{
+  background: black;
+}
+
+.wrapperClass{
+  padding: 2em 10.6em;
+}
+
+
+.lableLead{
+  color: white;
+}
+
+.drfCard{
+  width: 100%;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.082);
+  border: 2px solid #01DA5D;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.demo{
+  color: #c666f38e;
+  color: #7300ffad;
+  color: #64f09e79;
+  color: #08ff6fc9;
+}
+
+@media (max-width: 580.98px) {
+  .wrapperClass{
+    padding: 2em 1.6em;
+  }
+  .createBox{
+    margin:0px;
+    width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}

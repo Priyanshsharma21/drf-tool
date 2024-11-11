@@ -1,0 +1,21 @@
+.navbarLogo img{
+    width: 50px;
+    cursor:pointer;
+}
+.navbarCreate{
+    display: flex;
+    align-items: center;
+    background: #01DA5D;
+    padding: 1rem;
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    cursor: pointer;
+}
+
+.navbarCreate:hover{
+    background: #00A99A;
+}
+
+.navbarCreate{
+    font-size: 1rem;
+}

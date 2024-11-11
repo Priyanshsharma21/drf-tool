@@ -1,0 +1,40 @@
+.designCard{
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 3rem;
+}
+
+.designCardBG{
+    width: 50px;
+    height: 100px;
+}
+
+.designCardTitle{
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+}
+.designCardDesc{
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.designCard{
+    margin-top: 1rem;
+}
+
+.dcRight{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 1rem;
+}
+
+@media (max-width: 580.98px) {
+    .designCard{
+        margin-left: 1rem;
+    }
+    
+}
